@@ -73,7 +73,7 @@ public class blow : MonoBehaviour
         }
 
         //three states
-        if (force > 1 && !iced) {
+        if (force > 1 && !iced || Input.GetKey(KeyCode.Z)) {
             water = false;
             ice = false;
             vapor = true;
