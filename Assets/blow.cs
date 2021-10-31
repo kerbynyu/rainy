@@ -16,7 +16,8 @@ public class blow : MonoBehaviour
     public grounded grd;
     public bool landed;
     public bool iced;
-    public bool jump;
+    public bool moveLeft;
+    public bool moveRight;
 
     // Start is called before the first frame update
     void Start()
@@ -35,67 +36,81 @@ public class blow : MonoBehaviour
         {
             landed = false;
         }
-        if (Input.GetKey(KeyCode.E))
+        
+        //temp control
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            iced = true;
+            vapor = true;
+            water = false;
+            ice = false;
         }
-        else
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            iced = false;
+            ice = true;
+            water = false;
+            vapor = false;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && water && landed)
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            jump = true;
+            water = true;
+            vapor = false;
+            ice = false;
         }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            moveRight = true;
+            moveLeft = false;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            moveLeft = true;
+            moveRight = false;
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            moveLeft = false;
+            moveRight = false;
+        }
+        
     }
 
 
     private void FixedUpdate()
     {
-        //control
-        force = Mic.MicLoudness * 10;
-        if (jump)
-        {
-            rb.AddForce(new Vector2(0, 300));
-            jump = false;
-        }
 
-        if (water)
+
+        //control
+
+        if (water || vapor)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (moveLeft)
             {
                 transform.Translate(new Vector2(-0.1f, 0));
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (moveRight)
             {
                 transform.Translate(new Vector2(0.1f, 0));
             }
         }
+        else
+        {
+            moveLeft = false;
+            moveRight = false;
+        }
 
         //three states
-        if (force > 1 && !iced || Input.GetKey(KeyCode.Z)) {
-            water = false;
-            ice = false;
-            vapor = true;
-        }
-        else if (!landed && iced)
-        {
-            vapor = false;
-            water = false;
-            ice = true;
-        }
-        else if (landed && !iced && force < 1)
-        {
-            vapor = false;
-            ice = false;
-            water = true;
-        }
+
 
         if (vapor)
         {
             sr.sprite = vaporSpr;
             rb.velocity = new Vector2(0, force);
             rb.gravityScale = 3;
+            transform.Translate(new Vector2(0, 0.1f));
         }
         else if (water)
         {

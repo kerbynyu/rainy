@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class trigger : MonoBehaviour
 {
-    public fanBlowing fan;
+    public gate theGate;
     public bool triggered;
+    public float counter;
     // Start is called before the first frame update
     void Start()
     {
-        fan = transform.parent.gameObject.GetComponent<fanBlowing>();
+        //theGate = transform.parent.gameObject.GetComponent<gate>();
     }
 
     // Update is called once per frame
@@ -17,7 +18,16 @@ public class trigger : MonoBehaviour
     {
         if (triggered)
         {
-            fan.activated = true;
+            theGate.activated = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (counter < 10 && triggered)
+        {
+            counter += 1;
+            transform.Translate(new Vector2(0, -0.1f));
         }
     }
 
