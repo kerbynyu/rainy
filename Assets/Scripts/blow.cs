@@ -18,6 +18,7 @@ public class blow : MonoBehaviour
     public bool iced;
     public bool moveLeft;
     public bool moveRight;
+    public bool tempControl;
 
     // Start is called before the first frame update
     void Start()
@@ -36,44 +37,47 @@ public class blow : MonoBehaviour
         {
             landed = false;
         }
-        
+
         //temp control
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (tempControl)
         {
-            vapor = true;
-            water = false;
-            ice = false;
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ice = true;
-            water = false;
-            vapor = false;
-        }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                vapor = true;
+                water = false;
+                ice = false;
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ice = true;
+                water = false;
+                vapor = false;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            water = true;
-            vapor = false;
-            ice = false;
-        }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                water = true;
+                vapor = false;
+                ice = false;
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveRight = true;
-            moveLeft = false;
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveRight = true;
+                moveLeft = false;
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveLeft = true;
-            moveRight = false;
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                moveLeft = true;
+                moveRight = false;
+            }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveLeft = false;
-            moveRight = false;
+            if (Input.GetKey(KeyCode.W))
+            {
+                moveLeft = false;
+                moveRight = false;
+            }
         }
         
     }
