@@ -33,7 +33,7 @@ public class trigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<blow>().ice)
+        if (collision.gameObject.GetComponent<blow>()!=null && collision.gameObject.GetComponent<blow>().ice)
         {
             triggered = true;
         }

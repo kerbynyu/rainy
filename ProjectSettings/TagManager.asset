@@ -6,6 +6,7 @@ TagManager:
   tags:
   - platform
   - Camera 2
+  - waterPass
   layers:
   - Default
   - TransparentFX

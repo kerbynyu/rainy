@@ -13,30 +13,29 @@ public class blow : MonoBehaviour
     public Sprite waterSpr;
     public Sprite vaporSpr;
     public Sprite iceSpr;
-    public grounded grd;
-    public bool landed;
     public bool iced;
     public bool moveLeft;
     public bool moveRight;
     public bool tempControl;
+    public BoxCollider2D box;
+    public GameObject fluid;
+    public ParticleSystem vaporParticles;
+    public float vaporCounter;
+    public bool summoned;
+    public ParticleSystem iceParticles;
+    public float iceCounter;
 
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        vaporParticles.Stop();
+        iceParticles.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (grd.isGrounded)
-        {
-            landed = true;
-        }
-        else
-        {
-            landed = false;
-        }
 
         //temp control
         if (tempControl)
@@ -71,6 +70,7 @@ public class blow : MonoBehaviour
             {
                 moveLeft = true;
                 moveRight = false;
+
             }
 
             if (Input.GetKey(KeyCode.W))
@@ -89,7 +89,7 @@ public class blow : MonoBehaviour
 
         //control
 
-        if (water || vapor)
+        if (vapor || water)
         {
             if (moveLeft)
             {
@@ -98,6 +98,7 @@ public class blow : MonoBehaviour
             else if (moveRight)
             {
                 transform.Translate(new Vector2(0.1f, 0));
+                
             }
         }
         else
@@ -111,20 +112,64 @@ public class blow : MonoBehaviour
 
         if (vapor)
         {
+            if (fluid != null)
+            {
+                Destroy(fluid);
+            }
             sr.sprite = vaporSpr;
             rb.velocity = new Vector2(0, force);
             rb.gravityScale = 3;
             transform.Translate(new Vector2(0, 0.1f));
+            box.enabled = true;
+            sr.enabled = true;
+            iceCounter = 0;
+            if (vaporCounter < 15)
+            {
+                vaporCounter += 1;
+                vaporParticles.Play();
+            }
+            else
+            {
+                vaporParticles.Stop();
+            }
+            rb.isKinematic = false;
         }
         else if (water)
         {
-            sr.sprite = waterSpr;
             rb.gravityScale = 1;
+            box.enabled = false;
+            sr.enabled = false;
+            if (fluid != null)
+            {
+                transform.position = fluid.transform.position;
+            }
+            vaporCounter = 0;
+            iceCounter = 0;
+            rb.isKinematic = true;
         }
         else if (ice)
         {
+            if (fluid != null)
+            {
+                Destroy(fluid);
+            }
             sr.sprite = iceSpr;
             rb.gravityScale = 10;
+            box.enabled = true;
+            sr.enabled = true;
+            vaporCounter = 0;
+            rb.isKinematic = false;
+            if (iceCounter < 15)
+            {
+                sr.sprite = null;
+                iceCounter += 1;
+                iceParticles.Play();
+            }
+            else
+            {
+                sr.sprite = iceSpr;
+                iceParticles.Stop();
+            }
         }
     }
 }
