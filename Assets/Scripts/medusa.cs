@@ -18,6 +18,9 @@ public class medusa : MonoBehaviour
         m_Animator.GetComponent<Animator>().enabled = false;
     }
 
+
+    //m_Animator.GetComponent<Animator>().enabled = true; (Make medusa run) 
+
     // Update is called once per frame
     void Update()
     {
