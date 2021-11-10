@@ -7,9 +7,16 @@ public class trigger : MonoBehaviour
     public gate theGate;
     public bool triggered;
     public float counter;
+
+    public Animator m_Animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        m_Animator = GetComponent<Animator>();
+        m_Animator.GetComponent<Animator>().enabled = false;
+
         //theGate = transform.parent.gameObject.GetComponent<gate>();
     }
 
@@ -17,8 +24,10 @@ public class trigger : MonoBehaviour
     void Update()
     {
         if (triggered)
-        {
+        {m_Animator.GetComponent<Animator>().enabled = false;
             theGate.activated = true;
+
+            m_Animator.GetComponent<Animator>().enabled = true;
         }
     }
 

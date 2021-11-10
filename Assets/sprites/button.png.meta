@@ -1,16 +1,31 @@
 fileFormatVersion: 2
-guid: 3ca39d414311343e7aee94b57d922648
+guid: 95ba1b5bcdced457bacb241e5500f28a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1269588076273163515
-    second: water_sprite
+      213: 8416243949045666254
+    second: Untitled_Artwork 1_0
   - first:
-      213: -105562863937070682
-    second: cloud_sprite
+      213: -7652961046376491542
+    second: Untitled_Artwork 1_1
   - first:
-      213: -7403060565656634302
-    second: ice_sprite
+      213: 4115303021519320934
+    second: Untitled_Artwork 1_2
+  - first:
+      213: -677980041166861898
+    second: Untitled_Artwork 1_3
+  - first:
+      213: 2530564911472380330
+    second: button_0
+  - first:
+      213: 1763989116612304091
+    second: button_1
+  - first:
+      213: -5033884579438549468
+    second: button_2
+  - first:
+      213: 1120241560109220500
+    second: button_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,80 +111,89 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_sprite
+      name: button_0
       rect:
         serializedVersion: 2
-        x: 315
-        y: 1005
-        width: 183
-        height: 202
+        x: 82
+        y: 76
+        width: 421
+        height: 97
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfc5559f0ab7e9110800000000000000
-      internalID: 1269588076273163515
+      spriteID: aa90165216f5e1320800000000000000
+      internalID: 2530564911472380330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cloud_sprite
+      name: button_1
       rect:
         serializedVersion: 2
-        x: 195
-        y: 587
-        width: 377
-        height: 199
+        x: 567
+        y: 79
+        width: 421
+        height: 97
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a9de817227f88ef0800000000000000
-      internalID: -105562863937070682
+      spriteID: bdcd45b61c2fa7810800000000000000
+      internalID: 1763989116612304091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_sprite
+      name: button_2
       rect:
         serializedVersion: 2
-        x: 358
-        y: 169
-        width: 144
-        height: 147
+        x: 1041
+        y: 82
+        width: 421
+        height: 97
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24c755d73ab034990800000000000000
-      internalID: -7403060565656634302
+      spriteID: 426af3a45ac042ab0800000000000000
+      internalID: -5033884579438549468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 79
+        width: 421
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49280fc73c5eb8f00800000000000000
+      internalID: 1120241560109220500
       vertices: []
       indices: 
       edges: []

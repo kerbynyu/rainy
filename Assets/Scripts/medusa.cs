@@ -9,9 +9,13 @@ public class medusa : MonoBehaviour
     public bool invaded;
     public GameObject bullet;
     // Start is called before the first frame update
+
+    public Animator m_Animator;
+
     void Start()
     {
-        
+        m_Animator = GetComponent<Animator>();
+        m_Animator.GetComponent<Animator>().enabled = false;
     }
 
     // Update is called once per frame
