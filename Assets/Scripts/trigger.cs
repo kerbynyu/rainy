@@ -7,7 +7,7 @@ public class trigger : MonoBehaviour
     public gate theGate;
     public bool triggered;
     public float counter;
-
+    public ParticleSystem particles;
     public Animator m_Animator;
 
 
@@ -28,6 +28,7 @@ public class trigger : MonoBehaviour
             theGate.activated = true;
 
             m_Animator.GetComponent<Animator>().enabled = true;
+            particles.Stop();
         }
     }
 
