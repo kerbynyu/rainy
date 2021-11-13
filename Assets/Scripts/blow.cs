@@ -9,10 +9,8 @@ public class blow : MonoBehaviour
     public bool ice;
     public bool water;
     public bool vapor;
-    public SpriteRenderer sr;
-    public Sprite waterSpr;
-    public Sprite vaporSpr;
-    public Sprite iceSpr;
+    public GameObject vaporObj;
+    public GameObject iceObj;
     public bool iced;
     public bool moveLeft;
     public bool moveRight;
@@ -28,7 +26,6 @@ public class blow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
         vaporParticles.Stop();
         iceParticles.Stop();
     }
@@ -116,12 +113,12 @@ public class blow : MonoBehaviour
             {
                 Destroy(fluid);
             }
-            sr.sprite = vaporSpr;
+            vaporObj.SetActive(true);
+            iceObj.SetActive(false);
             rb.velocity = new Vector2(0, force);
             rb.gravityScale = 3;
             transform.Translate(new Vector2(0, 0.1f));
             box.enabled = true;
-            sr.enabled = true;
             iceCounter = 0;
             if (vaporCounter < 15)
             {
@@ -136,9 +133,10 @@ public class blow : MonoBehaviour
         }
         else if (water)
         {
+            vaporObj.SetActive(false);
+            iceObj.SetActive(false);
             rb.gravityScale = 1;
             box.enabled = false;
-            sr.enabled = false;
             if (fluid != null)
             {
                 transform.position = fluid.transform.position;
@@ -153,21 +151,21 @@ public class blow : MonoBehaviour
             {
                 Destroy(fluid);
             }
-            sr.sprite = iceSpr;
+            
+            vaporObj.SetActive(false);
             rb.gravityScale = 10;
             box.enabled = true;
-            sr.enabled = true;
             vaporCounter = 0;
             rb.isKinematic = false;
             if (iceCounter < 15)
             {
-                sr.sprite = null;
+                iceObj.SetActive(false);
                 iceCounter += 1;
                 iceParticles.Play();
             }
             else
             {
-                sr.sprite = iceSpr;
+                iceObj.SetActive(true);
                 iceParticles.Stop();
             }
         }
