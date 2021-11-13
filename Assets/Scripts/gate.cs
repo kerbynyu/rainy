@@ -8,6 +8,7 @@ public class gate : MonoBehaviour
     public float distance;
     public float counter;
     public bool horizontal;
+    public GameObject gateSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class gate : MonoBehaviour
                     transform.Translate(new Vector2(0, 0.1f));
                 }
             }
+            gateSound.SetActive(true);
         }
     }
 

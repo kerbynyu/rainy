@@ -157,7 +157,7 @@ public class blow : MonoBehaviour
             box.enabled = true;
             vaporCounter = 0;
             rb.isKinematic = false;
-            if (iceCounter < 15)
+            if (iceCounter < 5)
             {
                 iceObj.SetActive(false);
                 iceCounter += 1;

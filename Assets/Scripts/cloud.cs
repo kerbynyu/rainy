@@ -14,6 +14,9 @@ public class cloud : MonoBehaviour
     public bool toWater;
     public float waterCounter;
     public Sprite icedMedusa;
+    public ParticleSystem particles;
+    public GameObject gateSound;
+    public GameObject iceSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,10 +49,11 @@ public class cloud : MonoBehaviour
 
         if (counter < 500 && startCount)
         {
+            particles.Stop();
             if (!rightCloud)
             {
                 counter += 1;
-                
+                gateSound.SetActive(true);
                 if (counter > 20)
                 {
                     particle.SetActive(true);
@@ -75,7 +79,7 @@ public class cloud : MonoBehaviour
                 }
                 if (counter > 100)
                 {
-
+                    iceSound.SetActive(true);
                     dusa.GetComponent<SpriteRenderer>().sprite = icedMedusa;
                     ParticleSystem dusaPar = dusa.transform.GetChild(0).GetComponent<ParticleSystem>();
                     dusaPar.Stop();
