@@ -8,9 +8,11 @@ public class gameStarts : MonoBehaviour
     public List<GameObject> colliders;
     public bool gameStart;
     public bool doOnce;
+    public GameObject bgm;
     // Start is called before the first frame update
     void Start()
     {
+        bgm.SetActive(false);
         foreach (GameObject op in operations)
         {
             op.SetActive(false);
@@ -28,6 +30,7 @@ public class gameStarts : MonoBehaviour
         {
             if (gameStart)
             {
+                bgm.SetActive(true);
                 foreach (GameObject op in operations)
                 {
                     op.SetActive(true);

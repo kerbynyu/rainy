@@ -106,6 +106,11 @@ public class speechOperation : MonoBehaviour
         {
             player.moveLeft = false;
             player.moveRight = false;
+            if (player.fluid != null)
+            {
+                player.fluid.GetComponent<water_fluid>().moveRight = false;
+                player.fluid.GetComponent<water_fluid>().moveLeft = false;
+            }
         }
     }
 
